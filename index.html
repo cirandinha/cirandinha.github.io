@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>Prestação de contas – Baile de 50 anos da República Cirandinha</title>
+<style>
+:root{--ink:#1d1a20;--mut:#4f4855;--plum:#4b1d52;--teal:#1e7b72;--gold:#c58a12;--line:#d9d2dc;--soft:#f3eef5}
+*{box-sizing:border-box}
+body{margin:0;background:#fff;color:var(--ink);font:18px/1.55 Verdana,Arial,sans-serif}
+.wrap{max-width:760px;margin:0 auto;padding:0 16px 40px}
+header{background:var(--plum);color:#fff;padding:28px 16px 26px}
+header .wrap{padding-bottom:0}
+h1{font:700 30px/1.2 Georgia,'Times New Roman',serif;margin:0 0 8px}
+header p{margin:0;font-size:19px;color:#f0e4f3}
+h2{font:700 24px/1.25 Georgia,serif;color:var(--plum);margin:38px 0 8px}
+.total{padding:28px 0 6px}
+.total .big{font:700 56px/1.05 Georgia,serif;color:var(--teal);margin:0}
+.total p{margin:6px 0 0;font-size:20px}
+.facts{display:flex;flex-wrap:wrap;margin:22px 0 0;border-top:2px solid var(--line);border-bottom:2px solid var(--line)}
+.facts div{flex:1 1 200px;padding:16px 14px 16px 0}
+.facts b{display:block;font:700 34px/1.1 Georgia,serif;color:var(--plum)}
+.facts span{font-size:17px;color:var(--mut)}
+.ui{margin:14px 0}
+.tabs{display:flex;gap:10px;flex-wrap:wrap}
+.tabs button{font:700 18px Verdana,Arial,sans-serif;padding:12px 18px;border:2px solid var(--plum);background:#fff;color:var(--plum);border-radius:8px;cursor:pointer}
+.tabs button[aria-pressed=true]{background:var(--plum);color:#fff}
+button:focus-visible{outline:4px solid var(--gold);outline-offset:2px}
+.hint{color:var(--mut);font-size:17px;margin:10px 0 0}
+#msg{background:var(--soft);border-left:6px solid var(--gold);padding:14px 16px;margin:14px 0;font-size:20px;min-height:3.4em}
+#rows{margin:0;padding:0}
+.row{display:grid;grid-template-columns:8.6em 1fr 5.6em;gap:8px;align-items:center;width:100%;padding:7px 4px;border:0;border-bottom:1px solid var(--line);background:none;font:inherit;text-align:left;color:inherit;cursor:pointer}
+.row:hover,.row.sel{background:var(--soft)}
+.row .n{font-size:17px}
+.row .t{height:22px;background:#eee8f0;border-radius:4px;overflow:hidden}
+.row .t i{display:block;height:100%;background:var(--teal);border-radius:4px;transition:width .35s}
+.row.f .t i{background:var(--gold)}
+.row .v{font-weight:700;text-align:right;font-size:17px}
+.row.sel .n{font-weight:700}
+details{margin-top:16px}
+summary{cursor:pointer;font-weight:700;color:var(--plum);padding:8px 0}
+table{width:100%;border-collapse:collapse;font-size:17px}
+td,th{padding:7px 6px;border-bottom:1px solid var(--line);text-align:left}
+td:last-child,th:last-child{text-align:right}
+#gastos{display:none}
+.note{margin-top:34px;padding-top:16px;border-top:2px solid var(--line);color:var(--mut);font-size:17px}
+.img .ui,.img details,.img .hint{display:none}
+@media(max-width:480px){h1{font-size:25px}.total .big{font-size:46px}.row{grid-template-columns:7.6em 1fr 5em;font-size:16px}.row .n,.row .v{font-size:16px}}
+@media(prefers-reduced-motion:reduce){.row .t i{transition:none}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+<h1>Baile de 50 anos da República Cirandinha</h1>
+<p>Prestação de contas para as ex-alunas da casa</p>
+</div></header>
+
+<main class="wrap">
+<section class="total">
+<p class="big" id="total"></p>
+<p>foi o total arrecadado, somando as contribuições mensais, os pagamentos únicos e as doações dos amigos da casa. Valores registrados de abril de 2025 a setembro de 2026.</p>
+<div class="facts">
+<div><b id="pessoas"></b><span>pessoas contribuíram</span></div>
+<div><b id="meses"></b><span>meses de campanha</span></div>
+<div><b id="melhor"></b><span id="melhorTxt"></span></div>
+</div>
+</section>
+
+<h2>Quanto entrou em cada mês</h2>
+<div class="ui tabs" role="group" aria-label="Escolha como ver os valores">
+<button id="b1" aria-pressed="true">Mês a mês</button>
+<button id="b2" aria-pressed="false">Somando tudo</button>
+</div>
+<p class="hint">Toque ou clique em qualquer linha para ver o valor por extenso.</p>
+<div id="msg" aria-live="polite"></div>
+<div id="rows"></div>
+
+<details>
+<summary>Ver os valores em tabela</summary>
+<table><thead><tr><th>Mês</th><th>Valor do mês</th></tr></thead><tbody id="tb"></tbody></table>
+</details>
+
+<section id="gastos">
+<h2>Para onde foi o dinheiro</h2>
+<table><tbody id="gb"></tbody></table>
+<p id="saldo" style="font-size:22px;font-weight:700;color:var(--plum)"></p>
+</section>
+
+<p class="note">Qualquer dúvida sobre os números, é só responder este e-mail. Obrigada a todas e todos que ajudaram a fazer esta festa acontecer!</p>
+</main>
+
+<script>
+// ====== DADOS (edite aqui se precisar atualizar) ======
+var ANO_INICIO=2025, MES_INICIO=3; // abril de 2025
+var MESES=[2470,1800,1900,1800,2400,3100,2400,2200,7900,3127,4375,3390,5440,7965,6690,3065,3590,725];
+var AMIGOS=1306;      // doações avulsas de amigos
+var PESSOAS=40;
+var GASTOS=[];        // ex.: [{n:'Buffet',v:20000},{n:'Banda e som',v:8000}] — a seção aparece sozinha
+// =======================================================
+if(location.hash==='#img')document.body.className='img';
+var NOM=['janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro','outubro','novembro','dezembro'];
+var R=function(v){return 'R$ '+Math.round(v).toLocaleString('pt-BR')};
+var $=function(i){return document.getElementById(i)};
+var itens=MESES.map(function(v,i){var m=(MES_INICIO+i)%12,a=ANO_INICIO+Math.floor((MES_INICIO+i)/12);
+ return{v:v,nome:NOM[m],ano:a,rot:NOM[m][0].toUpperCase()+NOM[m].slice(1)+' '+a}});
+var somaMeses=MESES.reduce(function(a,b){return a+b},0), total=somaMeses+AMIGOS;
+$('total').textContent=R(total);
+$('pessoas').textContent=PESSOAS;
+$('meses').textContent=MESES.length;
+var mx=0;MESES.forEach(function(v,i){if(v>MESES[mx])mx=i});
+$('melhor').textContent=R(MESES[mx]);
+$('melhorTxt').textContent='foi o maior mês ('+itens[mx].nome+' de '+itens[mx].ano+')';
+var modo='mes',sel=-1;
+function linhas(){
+ var acc=0,L=itens.map(function(it){acc+=it.v;return{rot:it.rot,v:modo==='mes'?it.v:acc,frase:modo==='mes'?
+  'Em '+it.nome+' de '+it.ano+' entraram '+R(it.v)+'.':
+  'Até '+it.nome+' de '+it.ano+' já tínhamos juntado '+R(acc)+'.'}});
+ acc+=AMIGOS;
+ L.push({rot:'Amigos da casa',f:1,v:modo==='mes'?AMIGOS:acc,frase:modo==='mes'?
+  'Os amigos da casa fizeram doações avulsas que somam '+R(AMIGOS)+'.':
+  'Somando as doações dos amigos, chegamos ao total de '+R(acc)+'.'});
+ return L}
+function desenha(){
+ var L=linhas(),max=Math.max.apply(null,L.map(function(x){return x.v})),h='';
+ L.forEach(function(x,i){h+='<button class="row'+(x.f?' f':'')+(i===sel?' sel':'')+'" data-i="'+i+'"><span class="n">'+x.rot+'</span><span class="t"><i style="width:'+(x.v/max*100)+'%"></i></span><span class="v">'+R(x.v).replace('R$ ','')+'</span></button>'});
+ $('rows').innerHTML=h;
+ var k=sel>=0?sel:(modo==='mes'?mx:L.length-1);
+ $('msg').textContent=L[k].frase;
+}
+$('rows').addEventListener('click',function(e){var b=e.target.closest('.row');if(b){sel=+b.dataset.i;desenha();var s=document.querySelector('.row.sel');if(s)s.focus()}});
+function modoSet(m){modo=m;sel=-1;$('b1').setAttribute('aria-pressed',m==='mes');$('b2').setAttribute('aria-pressed',m==='acum');desenha()}
+$('b1').onclick=function(){modoSet('mes')};$('b2').onclick=function(){modoSet('acum')};
+var t='';itens.forEach(function(it){t+='<tr><td>'+it.rot+'</td><td>'+R(it.v)+'</td></tr>'});
+t+='<tr><td>Amigos da casa</td><td>'+R(AMIGOS)+'</td></tr><tr><td><b>Total</b></td><td><b>'+R(total)+'</b></td></tr>';
+$('tb').innerHTML=t;
+if(GASTOS.length){
+ var g=0,s='';GASTOS.forEach(function(x){g+=x.v;s+='<tr><td>'+x.n+'</td><td>'+R(x.v)+'</td></tr>'});
+ s+='<tr><td><b>Total gasto</b></td><td><b>'+R(g)+'</b></td></tr>';
+ $('gb').innerHTML=s;$('saldo').textContent='Saldo: '+R(total-g);$('gastos').style.display='block';
+}
+desenha();
+</script>
+</body>
+</html>
