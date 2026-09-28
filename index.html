@@ -2,144 +2,213 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="color-scheme" content="light">
-<title>Prestação de contas – Baile de 50 anos da República Cirandinha</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Baile de 50 anos — República Cirandinha</title>
 <style>
-:root{--ink:#1d1a20;--mut:#4f4855;--plum:#4b1d52;--teal:#1e7b72;--gold:#c58a12;--line:#d9d2dc;--soft:#f3eef5}
+:root{
+ --azul:#0b1f4b;--azul2:#132a63;--verm:#c8202c;--verm2:#a5171f;--bg:#ffffff;--card:#f4f5f8;
+ --ink:#0b1220;--mut:#525a6b;--line:#dfe2ea;--ok:#1e7b46;--r:14px;
+ box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+:root:not([data-theme="light"]) { }
+@media (prefers-color-scheme: dark){
+ :root:not([data-theme="light"]){--bg:#0a0f1e;--card:#111a33;--ink:#eef1f8;--mut:#aab2c5;--line:#26314f}
+}
+:root[data-theme="dark"]{--bg:#0a0f1e;--card:#111a33;--ink:#eef1f8;--mut:#aab2c5;--line:#26314f}
 *{box-sizing:border-box}
-body{margin:0;background:#fff;color:var(--ink);font:18px/1.55 Verdana,Arial,sans-serif}
-.wrap{max-width:760px;margin:0 auto;padding:0 16px 40px}
-header{background:var(--plum);color:#fff;padding:28px 16px 26px}
-header .wrap{padding-bottom:0}
-h1{font:700 30px/1.2 Georgia,'Times New Roman',serif;margin:0 0 8px}
-header p{margin:0;font-size:19px;color:#f0e4f3}
-h2{font:700 24px/1.25 Georgia,serif;color:var(--plum);margin:38px 0 8px}
-.total{padding:28px 0 6px}
-.total .big{font:700 56px/1.05 Georgia,serif;color:var(--teal);margin:0}
-.total p{margin:6px 0 0;font-size:20px}
-.facts{display:flex;flex-wrap:wrap;margin:22px 0 0;border-top:2px solid var(--line);border-bottom:2px solid var(--line)}
-.facts div{flex:1 1 200px;padding:16px 14px 16px 0}
-.facts b{display:block;font:700 34px/1.1 Georgia,serif;color:var(--plum)}
-.facts span{font-size:17px;color:var(--mut)}
-.ui{margin:14px 0}
-.tabs{display:flex;gap:10px;flex-wrap:wrap}
-.tabs button{font:700 18px Verdana,Arial,sans-serif;padding:12px 18px;border:2px solid var(--plum);background:#fff;color:var(--plum);border-radius:8px;cursor:pointer}
-.tabs button[aria-pressed=true]{background:var(--plum);color:#fff}
-button:focus-visible{outline:4px solid var(--gold);outline-offset:2px}
-.hint{color:var(--mut);font-size:17px;margin:10px 0 0}
-#msg{background:var(--soft);border-left:6px solid var(--gold);padding:14px 16px;margin:14px 0;font-size:20px;min-height:3.4em}
-#rows{margin:0;padding:0}
-.row{display:grid;grid-template-columns:8.6em 1fr 5.6em;gap:8px;align-items:center;width:100%;padding:7px 4px;border:0;border-bottom:1px solid var(--line);background:none;font:inherit;text-align:left;color:inherit;cursor:pointer}
-.row:hover,.row.sel{background:var(--soft)}
-.row .n{font-size:17px}
-.row .t{height:22px;background:#eee8f0;border-radius:4px;overflow:hidden}
-.row .t i{display:block;height:100%;background:var(--teal);border-radius:4px;transition:width .35s}
-.row.f .t i{background:var(--gold)}
-.row .v{font-weight:700;text-align:right;font-size:17px}
-.row.sel .n{font-weight:700}
-details{margin-top:16px}
-summary{cursor:pointer;font-weight:700;color:var(--plum);padding:8px 0}
-table{width:100%;border-collapse:collapse;font-size:17px}
-td,th{padding:7px 6px;border-bottom:1px solid var(--line);text-align:left}
-td:last-child,th:last-child{text-align:right}
-#gastos{display:none}
-.note{margin-top:34px;padding-top:16px;border-top:2px solid var(--line);color:var(--mut);font-size:17px}
-.img .ui,.img details,.img .hint{display:none}
-@media(max-width:480px){h1{font-size:25px}.total .big{font-size:46px}.row{grid-template-columns:7.6em 1fr 5em;font-size:16px}.row .n,.row .v{font-size:16px}}
-@media(prefers-reduced-motion:reduce){.row .t i{transition:none}}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 -apple-system,Segoe UI,Roboto,Arial,sans-serif}
+.wrap{max-width:920px;margin:0 auto;padding:0 18px 60px}
+header{background:linear-gradient(135deg,var(--azul),var(--azul2));color:#fff;padding:calc(env(safe-area-inset-top,0px) + 22px) 18px 0}
+header .top{max-width:920px;margin:0 auto;display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding-bottom:14px}
+header h1{font:800 26px/1.25 Georgia,'Times New Roman',serif;margin:0;flex:1 1 240px}
+header .faixa{height:6px;background:linear-gradient(90deg,var(--verm),#fff,var(--azul))}
+nav.tabs{max-width:920px;margin:0 auto;display:flex;gap:6px;padding:10px 18px 0}
+nav.tabs button{flex:1;font:700 15px inherit;padding:12px 8px;border:0;border-radius:10px 10px 0 0;background:rgba(255,255,255,.12);color:#fff;cursor:pointer}
+nav.tabs button[aria-selected=true]{background:var(--bg);color:var(--azul)}
+:root[data-theme="dark"] nav.tabs button[aria-selected=true],
+@media (prefers-color-scheme: dark){nav.tabs button[aria-selected=true]{color:#fff;background:var(--card)}}
+main{padding-top:22px}
+section[hidden]{display:none}
+h2{font:800 21px Georgia,serif;color:var(--azul);margin:30px 0 10px}
+@media (prefers-color-scheme: dark){h2{color:#9db3ff}}
+:root[data-theme="dark"] h2{color:#9db3ff}
+p.lead{color:var(--mut);margin:0 0 6px;font-size:15px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:14px 0}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:14px}
+.stat b{display:block;font:800 26px Georgia,serif;color:var(--verm)}
+.stat span{font-size:13px;color:var(--mut)}
+.bar{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:6px 14px;margin:14px 0}
+.bar .fill{height:16px;border-radius:8px;background:linear-gradient(90deg,var(--verm),var(--azul));margin:10px 0}
+.chart{display:flex;align-items:flex-end;gap:3px;height:150px;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:14px 10px 6px;margin:14px 0;overflow-x:auto}
+.col{flex:1 1 0;min-width:20px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;position:relative;cursor:default}
+.col i{width:100%;border-radius:4px 4px 0 0;background:var(--azul)}
+.col.max i{background:var(--verm)}
+.col.min i{background:#c9a227}
+.col small{font-size:9px;color:var(--mut);margin-top:4px;writing-mode:vertical-rl;transform:rotate(180deg);height:34px}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:13px;color:var(--mut);margin:2px 0 0}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend i{width:12px;height:12px;border-radius:3px;display:inline-block}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:18px;margin:14px 0}
+.login{max-width:480px}
+.login label{font-weight:700;display:block;margin-bottom:6px}
+.login input{width:100%;font-size:17px;padding:12px 14px;border:2px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink)}
+.login input:focus{outline:3px solid var(--verm);outline-offset:1px;border-color:var(--verm)}
+.sugg{list-style:none;margin:6px 0 0;padding:0;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.sugg li button{width:100%;text-align:left;padding:11px 14px;border:0;background:var(--bg);color:var(--ink);font-size:15px;cursor:pointer;border-bottom:1px solid var(--line)}
+.sugg li:last-child button{border-bottom:0}
+.sugg li button:hover,.sugg li button:focus-visible{background:var(--card)}
+.btn{font:700 15px inherit;padding:11px 18px;border:0;border-radius:10px;background:var(--verm);color:#fff;cursor:pointer;margin-top:8px}
+.btn:hover{background:var(--verm2)}
+#perfil{margin-top:18px}
+.big{font:800 40px Georgia,serif;margin:4px 0}
+.ok{color:var(--ok)}.falta{color:var(--verm)}
+table{width:100%;border-collapse:collapse;font-size:14px;margin-top:8px}
+td,th{padding:8px 6px;border-bottom:1px solid var(--line);text-align:left}
+.tag{display:inline-block;padding:2px 9px;border-radius:20px;font-size:12px;font-weight:700}
+.tag.ok{background:#e3f5e9;color:var(--ok)}
+.tag.no{background:#fbe4e5;color:var(--verm)}
+:root[data-theme="dark"] .tag.ok,@media(prefers-color-scheme:dark){.tag.ok{background:#123522}}
+:root[data-theme="dark"] .tag.no,@media(prefers-color-scheme:dark){.tag.no{background:#3a1418}}
+.close{display:block;background:none;border:0;color:var(--mut);cursor:pointer;font-size:14px;margin-top:14px;text-decoration:underline;padding:6px 0}
+.constr{text-align:center;padding:30px 10px}
+.constr p{color:var(--mut);max-width:420px;margin:14px auto 0}
+.foot{margin-top:40px;padding-top:16px;border-top:2px solid var(--line);color:var(--mut);font-size:14px}
+::-webkit-scrollbar{height:8px}::-webkit-scrollbar-thumb{background:var(--line);border-radius:4px}
 </style>
 </head>
 <body>
-<header><div class="wrap">
-<h1>Baile de 50 anos da República Cirandinha</h1>
-<p>Prestação de contas para as ex-alunas da casa</p>
-</div></header>
+<div class="faixa"></div>
+<header>
+ <div class="top"><h1>🎓 Baile de 50 anos<br><span style="font-weight:400;font-size:16px">República Cirandinha</span></h1></div>
+ <nav class="tabs" role="tablist">
+  <button role="tab" id="tb-inicio" aria-selected="true">Início</button>
+  <button role="tab" id="tb-area">Área da Ex-aluna</button>
+  <button role="tab" id="tb-novi">Novidades</button>
+ </nav>
+</header>
+<div class="faixa"></div>
 
 <main class="wrap">
-<section class="total">
-<p class="big" id="total"></p>
-<p>foi o total arrecadado, somando as contribuições mensais, os pagamentos únicos e as doações dos amigos da casa. Valores registrados de abril de 2025 a setembro de 2026.</p>
-<div class="facts">
-<div><b id="pessoas"></b><span>pessoas contribuíram</span></div>
-<div><b id="meses"></b><span>meses de campanha</span></div>
-<div><b id="melhor"></b><span id="melhorTxt"></span></div>
-</div>
+
+<section id="s-inicio">
+ <h2>Como está a arrecadação</h2>
+ <p class="lead">Campanha de contribuição para o baile de 50 anos — meta de R$ 2.400 por ex-aluna.</p>
+ <div class="stats">
+  <div class="stat"><b id="st-n"></b><span>ex-alunas na campanha</span></div>
+  <div class="stat"><b id="st-pag"></b><span>já contribuíram</span></div>
+  <div class="stat"><b id="st-tot"></b><span>total arrecadado</span></div>
+  <div class="stat"><b id="st-esp"></b><span>meta total esperada</span></div>
+ </div>
+ <div class="bar"><p class="lead" style="margin-top:10px">Progresso da meta — <b id="st-pct"></b></p><div class="fill" id="st-fill"></div></div>
+
+ <h2>Arrecadação mês a mês</h2>
+ <p class="lead">Em <b id="mesMax"></b> tivemos o maior volume; em <b id="mesMin"></b>, o menor.</p>
+ <div class="chart" id="chart" role="img" aria-label="Gráfico de barras da arrecadação mensal"></div>
+ <div class="legend"><span><i style="background:var(--verm)"></i>mês com mais arrecadação</span><span><i style="background:#c9a227"></i>mês com menos arrecadação</span><span><i style="background:var(--azul)"></i>demais meses</span></div>
+ <p class="lead">Além dos valores mensais, recebemos <b id="amigos"></b> em doações avulsas de amigos da casa, incluídas no total arrecadado.</p>
 </section>
 
-<h2>Quanto entrou em cada mês</h2>
-<div class="ui tabs" role="group" aria-label="Escolha como ver os valores">
-<button id="b1" aria-pressed="true">Mês a mês</button>
-<button id="b2" aria-pressed="false">Somando tudo</button>
-</div>
-<p class="hint">Toque ou clique em qualquer linha para ver o valor por extenso.</p>
-<div id="msg" aria-live="polite"></div>
-<div id="rows"></div>
-
-<details>
-<summary>Ver os valores em tabela</summary>
-<table><thead><tr><th>Mês</th><th>Valor do mês</th></tr></thead><tbody id="tb"></tbody></table>
-</details>
-
-<section id="gastos">
-<h2>Para onde foi o dinheiro</h2>
-<table><tbody id="gb"></tbody></table>
-<p id="saldo" style="font-size:22px;font-weight:700;color:var(--plum)"></p>
+<section id="s-area" hidden>
+ <h2>Consulte a sua contribuição</h2>
+ <p class="lead">Digite seu nome (ou apelido) como está cadastrado para ver seus meses de contribuição.</p>
+ <div class="card login">
+  <label for="busca">Nome ou apelido</label>
+  <input id="busca" type="text" autocomplete="off" placeholder="Ex.: Maria Silva">
+  <ul class="sugg" id="sugg" hidden></ul>
+  <p class="lead" id="semres" hidden>Não encontramos esse nome. Confira a grafia ou tente só o primeiro nome — se o problema continuar, responda o e-mail da comissão do baile.</p>
+ </div>
+ <div id="perfil" hidden>
+  <div class="card" id="perfilCard"></div>
+  <table id="perfilTab"><thead><tr><th>Mês</th><th>Contribuiu</th><th>Valor</th></tr></thead><tbody id="perfilBody"></tbody></table>
+  <button class="close" id="fechar">← voltar para a busca</button>
+ </div>
 </section>
 
-<p class="note">Qualquer dúvida sobre os números, é só responder este e-mail. Obrigada a todas e todos que ajudaram a fazer esta festa acontecer!</p>
+<section id="s-novi" hidden>
+ <div class="card constr">
+  <svg width="140" height="120" viewBox="0 0 140 120" aria-hidden="true">
+   <polygon points="70,10 130,105 10,105" fill="none" stroke="var(--verm)" stroke-width="8" stroke-linejoin="round"/>
+   <rect x="55" y="55" width="30" height="10" fill="var(--azul)"/>
+   <circle cx="70" cy="88" r="6" fill="var(--azul)"/>
+   <rect x="0" y="108" width="140" height="10" fill="var(--azul)" opacity=".15"/>
+  </svg>
+  <h2 style="margin-top:6px">Novidades em construção</h2>
+  <p>Em breve, novidades sobre o baile de 50 anos por aqui: fotos, agradecimentos e os próximos passos da comissão organizadora.</p>
+ </div>
+</section>
+
+<p class="foot">Dúvidas sobre os valores? Responda o e-mail da comissão do baile. Obrigada a todas que ajudaram a fazer esta festa acontecer! 💙❤️</p>
 </main>
 
 <script>
-// ====== DADOS (edite aqui se precisar atualizar) ======
-var ANO_INICIO=2025, MES_INICIO=3; // abril de 2025
-var MESES=[2470,1800,1900,1800,2400,3100,2400,2200,7900,3127,4375,3390,5440,7965,6690,3065,3590,725];
-var AMIGOS=1306;      // doações avulsas de amigos
-var PESSOAS=40;
-var GASTOS=[];        // ex.: [{n:'Buffet',v:20000},{n:'Banda e som',v:8000}] — a seção aparece sozinha
-// =======================================================
-if(location.hash==='#img')document.body.className='img';
-var NOM=['janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro','outubro','novembro','dezembro'];
-var R=function(v){return 'R$ '+Math.round(v).toLocaleString('pt-BR')};
+var D = {"meses":["Abr/25","Mai/25","Jun/25","Jul/25","Ago/25","Set/25","Out/25","Nov/25","Dez/25","Jan/26","Fev/26","Mar/26","Abr/26","Mai/26","Jun/26","Jul/26","Ago/26","Set/26"],"mesesExt":["abril de 2025","maio de 2025","junho de 2025","julho de 2025","agosto de 2025","setembro de 2025","outubro de 2025","novembro de 2025","dezembro de 2025","janeiro de 2026","fevereiro de 2026","março de 2026","abril de 2026","maio de 2026","junho de 2026","julho de 2026","agosto de 2026","setembro de 2026"],"totMeses":[2470.0,1800.0,1900.0,1800.0,2400.0,3100.0,2400.0,2200.0,7900.0,3127.0,4375.0,3390.0,5440.0,7965.0,6690.0,3065.0,3590.0,725.0],"amigos":1306,"totalGeral":65643.0,"totalPessoas":64337.0,"esperado":194400,"meta":2400,"n":81,"mx":13,"mn":17,"pessoas":[{"nome":"Ângela Maria Agostinho","m":[100.0,100.0,100.0,100.0,0.0,300.0,100.0,100.0,200.0,0.0,250.0,0.0,250.0,0.0,250.0,0.0,250.0,0.0],"t":2100.0},{"nome":"Marilda Casela Batista","m":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"t":0.0},{"nome":"Albanisa Assunção de Campos","m":[0.0,0.0,0.0,0.0,600.0,0.0,0.0,0.0,600.0,0.0,0.0,400.0,0.0,0.0,400.0,400.0,0.0,0.0],"t":2400.0},{"nome":"Marize Silva Soares","m":[0.0,0.0,0.0,0.0,0.0,500.0,0.0,200.0,0.0,200.0,250.0,250.0,0.0,250.0,250.0,0.0,250.0,0.0],"t":2150.0},{"nome":"Cleide Maria Tosta","m":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"t":0.0},{"nome":"Vera Lúcia Carvalho Mazzola","m":[100.0,0.0,0.0,0.0,200.0,0.0,200.0,0.0,200.0,200.0,250.0,0.0,0.0,250.0,0.0,125.0,125.0,0.0],"t":1650.0},{"nome":"Maria de Fátima Soraggi","m":[100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,250.0,125.0,125.0,125.0,125.0,125.0,125.0,125.0,0.0],"t":2025.0},{"nome":"Maria Carmem Angélica Manuela B. Bazan","m":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"t":0.0},{"nome":"Edelira Ayala","m":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"t":0.0},{"nome":"Elsa Maria da Silva Gomes","m":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"t":0.0},{"nome":"Márcia Silva Soares","m":[100.0,100.0,0.0,100.0,0.0,200.0,400.0,0.0,200.0,0.0,200.0,150.0,150.0,0.0,450.0,0.0,300.0,0.0],"t":2350.0},{"nome":"Laura Maria Reiff Miranda","m":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"t":0.0},{"nome":"Valéria Bretones Pereira","m":[100.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2000.0,0.0,0.0,0.0,0.0],"t":2100.0},{"nome":"Moema Barbosa Loureiro Tafuri","m":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"t":0.0},{"nome":"Sheila Márcia Tonelli","m":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"t":0.0},{"nome":"Regina Eugenio Ribeiro","m":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,240.0,240.0,240.0,240.0,240.0,240.0,0.0],"t":1440.0},{"nome":"Maria Cristina Gomes Trovó","m":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"t":0.0},{"nome":"Helenira Lúcia da Silva","m":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"t":0.0},{"nome":"Ariane Garrocho de Faria","m":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"t":0.0},{"nome":"Liliane","m":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"t":0.0},{"nome":"Alessandra","m":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"t":0.0},{"nome":"Andrea","m":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"t":0.0},{"nome":"Ana Lúcia de Azevedo","m":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"t":0.0},{"nome":"Irca de Matos Prata","m":[0.0,0.0,200.0,100.0,100.0,100.0,200.0,100.0,100.0,125.0,125.0,125.0,125.0,125.0,125.0,125.0,125.0,0.0],"t":1900.0},{"nome":"Patrícia Sanches Jonas","m":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"t":0.0},{"nome":"Rosely Prado Magalhães","m":[100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,125.0,125.0,125.0,125.0,125.0,125.0,125.0,125.0,0.0],"t":1900.0},{"nome":"Cibelle Menezes Felicori","m":[100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,125.0,125.0,125.0,125.0,125.0,125.0,125.0,125.0,125.0],"t":2025.0},{"nome":"Flávia Aparecida Correa Poddis","m":[100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,125.0,125.0,125.0,125.0,125.0,250.0,0.0,125.0,0.0],"t":1900.0},{"nome":"Ana Lúcia Maia","m":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"t":0.0},{"nome":"Maria Luiza Silva Ramos","m":[100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,125.0,125.0,0.0,0.0,125.0,125.0,125.0,0.0],"t":1625.0},{"nome":"Ana Paula Camillo Caixeta","m":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,125.0,0.0,0.0,0.0,0.0],"t":125.0},{"nome":"Renata Rechden Gomide","m":[100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,150.0,125.0,250.0,125.0,125.0,125.0,125.0,0.0],"t":2025.0},{"nome":"Vanessa Carvalho Rodrigues","m":[100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,125.0,125.0,125.0,125.0,125.0,125.0,125.0,125.0,125.0],"t":2025.0},{"nome":"Paula de Mello Martins","m":[100.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"t":100.0},{"nome":"Manuella Mendonça Leite","m":[100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,125.0,125.0,125.0,125.0,125.0,125.0,125.0,125.0,125.0],"t":2025.0},{"nome":"Paula Fonseca Caixeta","m":[0.0,0.0,100.0,100.0,100.0,300.0,100.0,100.0,100.0,125.0,125.0,125.0,125.0,125.0,125.0,125.0,0.0,0.0],"t":1775.0},{"nome":"Claudiene de Lourdes Fonseca","m":[0.0,100.0,100.0,100.0,100.0,100.0,0.0,200.0,100.0,200.0,125.0,125.0,125.0,125.0,125.0,125.0,125.0,125.0],"t":2000.0},{"nome":"Paula Aléssio Veloso","m":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"t":0.0},{"nome":"Josiane Pereira Vaz","m":[0.0,0.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,125.0,125.0,125.0,125.0,125.0,125.0,125.0,125.0,0.0],"t":1700.0},{"nome":"Bruna Castro Alves Araujo","m":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2400.0,0.0,0.0,0.0],"t":2400.0},{"nome":"Érika Araujo Sena","m":[100.0,100.0,0.0,0.0,0.0,400.0,0.0,0.0,0.0,0.0,0.0,0.0,1000.0,0.0,0.0,0.0,0.0,0.0],"t":1600.0},{"nome":"Thayse Marques Passos","m":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"t":0.0},{"nome":"Carla Neves Almeida Gomes","m":[100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,125.0,125.0,125.0,125.0,125.0,125.0,250.0,125.0,0.0],"t":2025.0},{"nome":"Janaína Brandão Seibert","m":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"t":0.0},{"nome":"Myrella Alves Brandão","m":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"t":0.0},{"nome":"Fernanda Ferreira Tolentino","m":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"t":0.0},{"nome":"Elis Regina Pessin Albieri","m":[150.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"t":150.0},{"nome":"Camila Cordeiro","m":[100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,125.0,1200.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"t":2225.0},{"nome":"Mariana Santos Pinto","m":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"t":0.0},{"nome":"Bruna Chagas de Melo","m":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"t":0.0},{"nome":"Thaís Simões Botelho","m":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"t":0.0},{"nome":"Fernanda Fagundes Siqueira","m":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"t":0.0},{"nome":"Kaylla Lemes Alves","m":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"t":0.0},{"nome":"Isabelle Christine Rodrigues","m":[100.0,100.0,100.0,0.0,0.0,0.0,0.0,0.0,1000.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"t":1300.0},{"nome":"Danielli Figueiredo Superbi","m":[100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,125.0,125.0,125.0,125.0,125.0,125.0,125.0,125.0,125.0],"t":2025.0},{"nome":"Thaís Silva Mendes","m":[100.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1600.0,100.0,100.0,100.0,100.0,100.0],"t":2200.0},{"nome":"Marina Mendes Sampaio","m":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"t":0.0},{"nome":"Yasmine Klesse Leonardo","m":[0.0,0.0,0.0,0.0,0.0,0.0,100.0,200.0,100.0,125.0,125.0,125.0,125.0,125.0,125.0,250.0,0.0,0.0],"t":1400.0},{"nome":"Cristina Morais Damasceno","m":[120.0,100.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"t":220.0},{"nome":"Ana Clara Villela Miranda","m":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2400.0,0.0,0.0,0.0,0.0],"t":2400.0},{"nome":"Fabiana Paula Costa","m":[100.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"t":100.0},{"nome":"Isadora Cristina Alves da Silveira","m":[100.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"t":100.0},{"nome":"Samara Gonçalves Lopes","m":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"t":0.0},{"nome":"V-OU-F","m":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2400.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"t":2400.0},{"nome":"Wilson Borghue","m":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"t":0.0},{"nome":"Vera","m":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"t":0.0},{"nome":"Geraldo Magela","m":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"t":0.0},{"nome":"Sebastião Neto","m":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,400.0,400.0,0.0,500.0,0.0],"t":1300.0},{"nome":"Paulo Henrique","m":[0.0,0.0,0.0,0.0,100.0,0.0,100.0,100.0,0.0,252.0,0.0,150.0,0.0,250.0,0.0,0.0,0.0,0.0],"t":952.0},{"nome":"Éverton de Castro","m":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1200.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"t":1200.0},{"nome":"Jones Freire","m":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"t":0.0},{"nome":"André de Abreu Costa","m":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"t":0.0},{"nome":"Felipe Comarela Milanez","m":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"t":0.0},{"nome":"Marcelo Boyer","m":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"t":0.0},{"nome":"D. Sônia (cumadre)","m":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"t":0.0},{"nome":"Marina Melo","m":[100.0,100.0,100.0,100.0,0.0,0.0,0.0,0.0,500.0,125.0,125.0,125.0,125.0,0.0,0.0,0.0,0.0,0.0],"t":1400.0},{"nome":"Rita Helena Pelizer","m":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,200.0,200.0,200.0,200.0,200.0,200.0,200.0,200.0,0.0],"t":1600.0},{"nome":"Maria do Carmo Torrano","m":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"t":0.0},{"nome":"Sheid amor","m":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"t":0.0},{"nome":"Mariana Cezarino Araújo","m":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"t":0.0},{"nome":"Syro Lacerda","m":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"t":0.0}]};
 var $=function(i){return document.getElementById(i)};
-var itens=MESES.map(function(v,i){var m=(MES_INICIO+i)%12,a=ANO_INICIO+Math.floor((MES_INICIO+i)/12);
- return{v:v,nome:NOM[m],ano:a,rot:NOM[m][0].toUpperCase()+NOM[m].slice(1)+' '+a}});
-var somaMeses=MESES.reduce(function(a,b){return a+b},0), total=somaMeses+AMIGOS;
-$('total').textContent=R(total);
-$('pessoas').textContent=PESSOAS;
-$('meses').textContent=MESES.length;
-var mx=0;MESES.forEach(function(v,i){if(v>MESES[mx])mx=i});
-$('melhor').textContent=R(MESES[mx]);
-$('melhorTxt').textContent='foi o maior mês ('+itens[mx].nome+' de '+itens[mx].ano+')';
-var modo='mes',sel=-1;
-function linhas(){
- var acc=0,L=itens.map(function(it){acc+=it.v;return{rot:it.rot,v:modo==='mes'?it.v:acc,frase:modo==='mes'?
-  'Em '+it.nome+' de '+it.ano+' entraram '+R(it.v)+'.':
-  'Até '+it.nome+' de '+it.ano+' já tínhamos juntado '+R(acc)+'.'}});
- acc+=AMIGOS;
- L.push({rot:'Amigos da casa',f:1,v:modo==='mes'?AMIGOS:acc,frase:modo==='mes'?
-  'Os amigos da casa fizeram doações avulsas que somam '+R(AMIGOS)+'.':
-  'Somando as doações dos amigos, chegamos ao total de '+R(acc)+'.'});
- return L}
-function desenha(){
- var L=linhas(),max=Math.max.apply(null,L.map(function(x){return x.v})),h='';
- L.forEach(function(x,i){h+='<button class="row'+(x.f?' f':'')+(i===sel?' sel':'')+'" data-i="'+i+'"><span class="n">'+x.rot+'</span><span class="t"><i style="width:'+(x.v/max*100)+'%"></i></span><span class="v">'+R(x.v).replace('R$ ','')+'</span></button>'});
- $('rows').innerHTML=h;
- var k=sel>=0?sel:(modo==='mes'?mx:L.length-1);
- $('msg').textContent=L[k].frase;
+var R=function(v){return 'R$ '+Math.round(v).toLocaleString('pt-BR')};
+function norm(s){return s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').trim()}
+
+// ---- INÍCIO ----
+var pagantes=D.pessoas.filter(function(p){return p.t>0}).length;
+$('st-n').textContent=D.n;
+$('st-pag').textContent=pagantes;
+$('st-tot').textContent=R(D.totalGeral);
+$('st-esp').textContent=R(D.esperado);
+var pct=D.totalGeral/D.esperado*100;
+$('st-pct').textContent=pct.toFixed(1).replace('.',',')+'% da meta';
+$('st-fill').style.width=Math.min(100,pct)+'%';
+$('amigos').textContent=R(D.amigos);
+$('mesMax').textContent=D.mesesExt[D.mx];
+$('mesMin').textContent=D.mesesExt[D.mn];
+var max=Math.max.apply(null,D.totMeses),ch='';
+D.totMeses.forEach(function(v,i){
+ var cls=i===D.mx?'max':(i===D.mn?'min':'');
+ ch+='<div class="col '+cls+'" title="'+D.mesesExt[i]+': '+R(v)+'"><i style="height:'+(v/max*100)+'%"></i><small>'+D.meses[i]+'</small></div>';
+});
+$('chart').innerHTML=ch;
+
+// ---- ÁREA DA EX-ALUNA ----
+var busca=$('busca'),sugg=$('sugg'),perfil=$('perfil'),semres=$('semres');
+busca.addEventListener('input',function(){
+ var q=norm(busca.value);perfil.hidden=true;
+ if(q.length<2){sugg.hidden=true;semres.hidden=true;return}
+ var m=D.pessoas.filter(function(p){return norm(p.nome).indexOf(q)>-1}).slice(0,6);
+ if(!m.length){sugg.hidden=true;semres.hidden=false;return}
+ semres.hidden=true;
+ sugg.hidden=false;
+ sugg.innerHTML=m.map(function(p,idx){return '<li><button type="button" data-i="'+D.pessoas.indexOf(p)+'">'+p.nome+'</button></li>'}).join('');
+});
+sugg.addEventListener('click',function(e){
+ var b=e.target.closest('button');if(!b)return;
+ mostrar(D.pessoas[+b.dataset.i]);
+});
+busca.addEventListener('keydown',function(e){
+ if(e.key==='Enter'){var b=sugg.querySelector('button');if(b)mostrar(D.pessoas[+b.dataset.i])}
+});
+$('fechar').addEventListener('click',function(){perfil.hidden=true;busca.value='';busca.focus();sugg.hidden=true});
+function mostrar(p){
+ sugg.hidden=true;perfil.hidden=false;
+ var falta=Math.max(0,D.meta-p.t),okMes=p.m.filter(function(v){return v>0}).length;
+ var c='<p>Situação de <b>'+p.nome+'</b></p>';
+ c+='<p class="big '+(falta<=0?'ok':'falta')+'">'+R(p.t)+'</p>';
+ c+='<p>de uma meta de '+R(D.meta)+(falta<=0?' — meta atingida! 🎉':' — faltam '+R(falta));
+ c+='</p><p style="color:var(--mut);font-size:14px">Contribuiu em '+okMes+' de '+D.meses.length+' meses acompanhados.</p>';
+ $('perfilCard').innerHTML=c;
+ var b='';
+ p.m.forEach(function(v,i){
+  b+='<tr><td>'+D.mesesExt[i]+'</td><td>'+(v>0?'<span class="tag ok">contribuiu</span>':'<span class="tag no">sem registro</span>')+'</td><td>'+(v>0?R(v):'—')+'</td></tr>';
+ });
+ $('perfilBody').innerHTML=b;
+ perfil.scrollIntoView({behavior:'smooth',block:'start'});
 }
-$('rows').addEventListener('click',function(e){var b=e.target.closest('.row');if(b){sel=+b.dataset.i;desenha();var s=document.querySelector('.row.sel');if(s)s.focus()}});
-function modoSet(m){modo=m;sel=-1;$('b1').setAttribute('aria-pressed',m==='mes');$('b2').setAttribute('aria-pressed',m==='acum');desenha()}
-$('b1').onclick=function(){modoSet('mes')};$('b2').onclick=function(){modoSet('acum')};
-var t='';itens.forEach(function(it){t+='<tr><td>'+it.rot+'</td><td>'+R(it.v)+'</td></tr>'});
-t+='<tr><td>Amigos da casa</td><td>'+R(AMIGOS)+'</td></tr><tr><td><b>Total</b></td><td><b>'+R(total)+'</b></td></tr>';
-$('tb').innerHTML=t;
-if(GASTOS.length){
- var g=0,s='';GASTOS.forEach(function(x){g+=x.v;s+='<tr><td>'+x.n+'</td><td>'+R(x.v)+'</td></tr>'});
- s+='<tr><td><b>Total gasto</b></td><td><b>'+R(g)+'</b></td></tr>';
- $('gb').innerHTML=s;$('saldo').textContent='Saldo: '+R(total-g);$('gastos').style.display='block';
-}
-desenha();
+
+// ---- ABAS ----
+var tabs=[['tb-inicio','s-inicio'],['tb-area','s-area'],['tb-novi','s-novi']];
+tabs.forEach(function(t){
+ $(t[0]).addEventListener('click',function(){
+  tabs.forEach(function(o){$(o[0]).setAttribute('aria-selected',o[0]===t[0]);$(o[1]).hidden=o[0]!==t[0]});
+  window.scrollTo({top:0,behavior:'smooth'});
+ });
+});
 </script>
 </body>
 </html>
