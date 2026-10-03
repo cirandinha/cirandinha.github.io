@@ -119,7 +119,7 @@ td,th{padding:8px 6px;border-bottom:1px solid var(--line);text-align:left}
 
 <section id="s-area" hidden>
  <h2>Consulte a sua contribuição</h2>
- <p class="lead">Digite seu nome (ou apelido) como está cadastrado para ver seus meses de contribuição.</p>
+ <p class="lead">Digite seu nome (ou apelido) para verificar suas contribuições.</p>
  <div class="card login">
   <label for="busca">Nome ou apelido</label>
   <input id="busca" type="text" autocomplete="off" placeholder="Ex.: Maria Silva">
@@ -150,20 +150,39 @@ td,th{padding:8px 6px;border-bottom:1px solid var(--line);text-align:left}
 </main>
 
 <script>
-var D = {"meses":["Abr/25","Mai/25","Jun/25","Jul/25","Ago/25","Set/25","Out/25","Nov/25","Dez/25","Jan/26","Fev/26","Mar/26","Abr/26","Mai/26","Jun/26","Jul/26","Ago/26","Set/26"],"mesesExt":["abril de 2025","maio de 2025","junho de 2025","julho de 2025","agosto de 2025","setembro de 2025","outubro de 2025","novembro de 2025","dezembro de 2025","janeiro de 2026","fevereiro de 2026","março de 2026","abril de 2026","maio de 2026","junho de 2026","julho de 2026","agosto de 2026","setembro de 2026"],"totMeses":[2470.0,1800.0,1900.0,1800.0,2400.0,3100.0,2400.0,2200.0,7900.0,3127.0,4375.0,3390.0,5440.0,7965.0,6690.0,3065.0,3590.0,725.0],"amigos":1306,"totalGeral":65643.0,"totalPessoas":64337.0,"esperado":100800,"meta":2400,"n":42,"mx":13,"mn":17};
+var D = {"meses":["Abr/25","Mai/25","Jun/25","Jul/25","Ago/25","Set/25","Out/25","Nov/25","Dez/25","Jan/26","Fev/26","Mar/26","Abr/26","Mai/26","Jun/26","Jul/26","Ago/26","Set/26"],"mesesExt":["abril de 2025","maio de 2025","junho de 2025","julho de 2025","agosto de 2025","setembro de 2025","outubro de 2025","novembro de 2025","dezembro de 2025","janeiro de 2026","fevereiro de 2026","março de 2026","abril de 2026","maio de 2026","junho de 2026","julho de 2026","agosto de 2026","setembro de 2026"],"totMeses":[2470.0,1800.0,1900.0,1800.0,2400.0,3100.0,2400.0,2200.0,7900.0,3127.0,4375.0,3390.0,5440.0,7965.0,6690.0,3065.0,3590.0,725.0],"amigos":1306,"totalGeral":65643.0,"totalPessoas":64337.0,"esperado":112800,"meta":2400,"n":47,"mx":13,"mn":17};
 
 // Cada linha: [nome completo (apelido), valores por mês — zeros finais omitidos]. O total é a soma dos meses.
 var P=[
 ["Ângela Maria Agostinho (Angelina)",[100,100,100,100,0,300,100,100,200,0,250,0,250,0,250,0,250]],
+["Marilda Casela Batista",[]],
 ["Albanisa Assunção de Campos (BANI)",[0,0,0,0,600,0,0,0,600,0,0,400,0,0,400,400]],
 ["Marize Silva Soares (Painha)",[0,0,0,0,0,500,0,200,0,200,250,250,0,250,250,0,250]],
+["Cleide Maria Tosta",[]],
 ["Vera Lúcia Carvalho Mazzola",[100,0,0,0,200,0,200,0,200,200,250,0,0,250,0,125,125]],
 ["Maria de Fátima Soraggi (Fatinha)",[100,100,100,100,100,100,100,100,100,250,125,125,125,125,125,125,125]],
+["Maria Carmem Angélica Manuela B. Bazan",[]],
+["Edelira Ayala",[]],
+["Elsa Maria da Silva Gomes",[]],
+["Márcia Silva Soares",[100,100,0,100,0,200,400,0,200,0,200,150,150,0,450,0,300]],
+["Laura Maria Reiff Miranda",[]],
 ["Valéria Bretones Pereira",[100,0,0,0,0,0,0,0,0,0,0,0,0,2000]],
+["Moema Barbosa Loureiro Tafuri",[]],
+["Sheila Márcia Tonelli",[]],
 ["Regina Eugenio Ribeiro",[0,0,0,0,0,0,0,0,0,0,0,240,240,240,240,240,240]],
+["Maria Cristina Gomes Trovó",[]],
+["Helenira Lúcia da Silva",[]],
+["Ariane Garrocho de Faria",[]],
+["Liliane",[]],
+["Alessandra",[]],
+["Andrea",[]],
+["Ana Lúcia de Azevedo",[]],
+["Irca de Matos Prata",[0,0,200,100,100,100,200,100,100,125,125,125,125,125,125,125,125]],
+["Patrícia Sanches Jonas",[]],
 ["Rosely Prado Magalhães (Tulipa)",[100,100,100,100,100,100,100,100,100,125,125,125,125,125,125,125,125]],
 ["Cibelle Menezes Felicori (Ci)",[100,100,100,100,100,100,100,100,100,125,125,125,125,125,125,125,125,125]],
 ["Flávia Aparecida Correa Poddis",[100,100,100,100,100,100,100,100,100,125,125,125,125,125,250,0,125]],
+["Ana Lúcia Maia",[]],
 ["Maria Luiza Silva Ramos (Malu)",[100,100,100,100,100,100,100,100,100,100,125,125,0,0,125,125,125]],
 ["Ana Caixeta (Pauls / Priscilla)",[0,0,0,0,0,0,0,0,0,0,0,0,0,125]],
 ["Renata Rechden Gomide (Rê)",[100,100,100,100,100,100,100,100,100,100,150,125,250,125,125,125,125]],
@@ -172,20 +191,26 @@ var P=[
 ["Manuella Mendonça Leite (Mindu)",[100,100,100,100,100,100,100,100,100,125,125,125,125,125,125,125,125,125]],
 ["Paula Fonseca Caixeta (Paulama)",[0,0,100,100,100,300,100,100,100,125,125,125,125,125,125,125]],
 ["Claudiene de Lourdes Fonseca (Tudao)",[0,100,100,100,100,100,0,200,100,200,125,125,125,125,125,125,125,125]],
+["Paula Aléssio Veloso",[]],
 ["Josiane Pereira Vaz (Loreal)",[0,0,100,100,100,100,100,100,100,125,125,125,125,125,125,125,125]],
 ["Bruna Araujo (Mamuska)",[0,0,0,0,0,0,0,0,0,0,0,0,0,0,2400]],
 ["Érika Araujo Sena (Magda)",[100,100,0,0,0,400,0,0,0,0,0,0,1000]],
+["Thayse Marques Passos",[]],
 ["Carla Neves Almeida Gomes (Falazada)",[100,100,100,100,100,100,100,100,100,125,125,125,125,125,125,250,125]],
 ["Janaína Brandão Seibert (Pracinha)",[]],
 ["Myrella Alves Brandão (Tinino)",[]],
 ["Fernanda Ferreira Tolentino (Dendê)",[]],
 ["Elis Regina Pessin Albieri Pisciolaro (Garrafinha)",[150]],
 ["Camila Cordeiro (Mandacaru)",[100,100,100,100,100,100,100,100,100,125,1200]],
+["Mariana Santos Pinto",[]],
+["Bruna Chagas de Melo",[]],
+["Thaís Simões Botelho",[]],
 ["Fernanda Fagundes Siqueira (Fiona)",[]],
 ["Kaylla Lemes Alves (Ribamar)",[]],
 ["Isabelle Christine Rodrigues (Flashback)",[100,100,100,0,0,0,0,0,1000]],
 ["Danielli Figueiredo Superbi (DDR)",[100,100,100,100,100,100,100,100,100,125,125,125,125,125,125,125,125,125]],
 ["Thaís Silva Mendes (Serpentina)",[100,0,0,0,0,0,0,0,0,0,0,0,1600,100,100,100,100,100]],
+["Marina Mendes Sampaio",[]],
 ["Yasmine Klesse Leonardo (Faminta)",[0,0,0,0,0,0,100,200,100,125,125,125,125,125,125,250]],
 ["Cristina Morais Damasceno (Sei la)",[120,100]],
 ["Ana Clara Villela Miranda (Off-line)",[0,0,0,0,0,0,0,0,0,0,0,0,0,2400]],
@@ -193,9 +218,22 @@ var P=[
 ["Isadora Cristina Alves da Silveira (Plateia)",[100]],
 ["Samara Gonçalves Lopes (Slow Motion)",[]],
 ["Bárbara Lemr (V-OU-F)",[0,0,0,0,0,0,0,0,2400]],
+["Wilson Borghue",[]],
+["Vera",[]],
+["Geraldo Magela",[]],
 ["Sebastião Rabelo Neto (Conde)",[0,0,0,0,0,0,0,0,0,0,0,0,0,400,400,0,500]],
+["Paulo Henrique",[0,0,0,0,100,0,100,100,0,252,0,150,0,250]],
 ["Everton Cardoso de Castro (Rubelita)",[0,0,0,0,0,0,0,0,1200]],
-["Mariana Cezarino Araújo (Fuinha)",[]]
+["Jones Freire",[]],
+["André de Abreu Costa",[]],
+["Felipe Comarela Milanez",[]],
+["Marcelo Boyer",[]],
+["D. Sônia (cumadre)",[]],
+["Marina Melo",[100,100,100,100,0,0,0,0,500,125,125,125,125]],
+["Rita Helena Pelizer",[0,0,0,0,0,0,0,0,0,200,200,200,200,200,200,200,200]],
+["Maria do Carmo Torrano",[]],
+["Mariana Cezarino Araújo (Fuinha)",[]],
+["Syro Lacerda",[]]
 ];
 D.pessoas=P.map(function(r){var m=r[1].slice();while(m.length<D.meses.length)m.push(0);return{nome:r[0],m:m,t:m.reduce(function(a,b){return a+b},0)}});
 
